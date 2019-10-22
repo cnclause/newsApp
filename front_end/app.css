@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    font-family: 'Old Standard TT', serif;
+    background: lightgray;
+    border: black solid 1px;
+}
+
+h1{
+    font-size: 50px;
+    padding-left: 5rem;
+}
+
+nav{
+    display: flex;
+    padding-right: 5rem;
+}
+
+.search-bar-container{
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+#text-search{
+    width: 35rem;
+    height: 3rem;
+    text-align: center;
+}
+
+#search-button{
+    width: 5rem;
+}
+
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+
+}
