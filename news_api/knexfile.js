@@ -1,7 +1,8 @@
 // Update with your config settings.
 
 module.exports = {
-
+  clinet: 'pg',
+  
   development: {
     client: 'pg',
     connection: 'postgres://localhost/users-articles-db'
