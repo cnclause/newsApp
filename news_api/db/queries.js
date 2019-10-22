@@ -1,24 +1,22 @@
 const knex = require('./knex')
 
 module.exports = {
-    getAll(){
+    getAllUsers(){
         return knex('users') 
     },
 
-    createUser(user){
-    return knex('users')
-            .insert(user, '*')
-            .catch( resp => {
-                return [{error: "username already taken"}]
-            })
-            //     function( resp ){
-            //     console.log("error:", resp );
-            // })
-            // .catch(function(err) {
-            //    console.log(err.stack);
-            // })
-            
+    getOneUser(id){
+        return knex('users').where('id', id).first()
     },
+
+    // createUser(user){
+    // return knex('users')
+    //         .insert(user, '*')
+    //         .catch( resp => {
+    //             return [{error: "username already taken"}]
+    //         })
+            
+    // },
 
     uniqueUser(user){
         console.log(user.username)
@@ -29,11 +27,14 @@ module.exports = {
             .select('username') 
             .catch(console.error)
         
+    }, 
 
-        // if('id'!= null){
-        //     return knex('users').insert(user, '*')
-        // } else {
-        //     return "username is already taken"
-        // }
+    getAllArticles(){
+        return knex('articles')
+    },
+
+    createArticle(article){
+        return knex('articles').insert(article, '*')
     }
+
 }
