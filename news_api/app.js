@@ -3,7 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+
 const users = require('./api/users')
+const User = require('./models/user.js')
+const articles = require('./api/articles')
+
 
 
 
@@ -16,6 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api/users', users)
+app.post('/signup', User.signup)
+app.post('/signin', User.signin)
+
+app.use('/api/articles', articles)
 
 
 // catch 404 and forward to error handler
