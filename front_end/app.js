@@ -36,9 +36,9 @@ function createArticleCard(article) {
     const $description = document.createElement('h4')
     // const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
-
     $card.className = "article-card"
     $imageBox.className = "image-box"
+    $infoBox.className = "info-box"
     $title.className = "article-title"
 
     $image.src = article.urlToImage
