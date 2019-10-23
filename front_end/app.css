@@ -52,6 +52,10 @@ ol:hover{
     margin: 0;
 }
 
+.search-bar {
+    justify-self: center;
+}
+
 #text-search{
     width: 35rem;
     height: 3rem;
