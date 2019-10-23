@@ -15,25 +15,28 @@
         </nav>
         <h1>My News</h1>
     </header>
-    <div class="signin-container">
+    <div class="signin-container" action="news.html">
         <form class ="signup-form">
             <h2 class="new-user-title"></h2>
             <h3 class="instructions"></h3>
             <input type="text" name="username" id="username" placeholder="Username"/>
             <input type="password" name="password" id="password" placeholder="Password"/>
-            <input type="submit" value="Sign Up" id="signUp"/> 
+            <input type="submit" value="Sign Up" id="signUp" /> 
         </form>
-        <form class="login-form">
+        <form class="login-form" >
             <h2 class="currentUserTitle"></h2>
-            <h3 class="LoginInstructions"></h3>
+            <h3 class="loginInstructions"></h3>
             <input type="text" name="username" id="username" placeholder="Username"/>
             <input type="password" name="password" id="password" placeholder="Password"/>
-            <input type="submit" value="Login" id="login"/>
+            <input type="submit" value="Login" id="login" onclick="window.location.href = 'news.html'"/>
+            
         </form>
 
     </div>
   
+
     <script src ="news.js"></script>
     <script src="app.js"></script>
+    
 </body>
 </html>

@@ -19,6 +19,7 @@ const createUser = (user) => {
         [user.username, user.password_digest, user.token]
     )
     .then((data) => data.rows[0])
+    .catch(console.error)
 }
 
 const createToken = () => {

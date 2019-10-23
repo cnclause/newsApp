@@ -1,11 +1,12 @@
 
-let currentUserId = ''
 
 const signUpUser = 'http://localhost:3000/signup'
+const loginUser ='http://localhost:3000/login'
 
 const $signInContainer = document.querySelector('.sign-in')  
 const $signUpForm = document.querySelector('.signup-form')
-const $logInForm = document.querySelector('.login-form')
+const $loginForm = document.querySelector('.login-form') 
+
 
 
 function createSignIn(){
@@ -17,7 +18,6 @@ function createSignIn(){
 
     $signUpForm.addEventListener('submit', event => {
         event.preventDefault()
-        console.log(event)
         const formData = new FormData($signUpForm)
         const username = formData.get('username')
         const password = formData.get('password')
@@ -40,8 +40,57 @@ function createUser(user){
         },
         body: JSON.stringify(user)
     }).then(response => response.json())
+        .then(result => signUpWork(result.user.id))
+}
+
+function signUpWork(id){
+    currentUserId = id
+    login()
+    console.log(currentUserId)
+}
+
+// function signUpError(){
+//     alert("username already taken, try again")
+//     createSignIn()
+// }
+
+function createLogIn(){
+    const $loginTitle = document.querySelector('.currentUserTitle')
+    const $loginInformation = document.querySelector('.loginInstructions')
+
+    $loginTitle.innerText = "Current User Signin" 
+    $loginInformation.innerText = "Use your username and password to login"      
+}
+
+function login() {
+    $loginForm.addEventListener('submit', event => {
+        event.preventDefault()
+        const formData = new FormData($loginForm)
+        const username = formData.get('username')
+        const password = formData.get('password')
+
+        user = {
+            username,
+            password
+        }
+
+        checkLogin(user)
+    })
+}
+
+function checkLogin(user){
+    fetch(loginUser, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    }).then(response => response.json())
         .then(result => console.log(result))
+
 }
 
 
+
+createLogIn()
 createSignIn()

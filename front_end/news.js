@@ -1,5 +1,5 @@
-// current user and add animal id
-
+// current user and add article id
+let currentUserId = ''
 let savedArticleId = ''
 
 
@@ -7,7 +7,7 @@ const articleUrl = 'http://localhost:3000/api/articles'
 const userArticlePost = 'http://localhost:3000/api/userarticles'
 
 const searchButton = document.getElementById('search-button')
-const searchText = document.querySelector('#text-search')
+let searchText = document.querySelector('#text-search')
 const searchForm = document.querySelector('.search-bar')
 const $cardContainer = document.createElement('div')
 $cardContainer.className = 'card-container'
