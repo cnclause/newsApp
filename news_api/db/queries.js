@@ -35,6 +35,14 @@ module.exports = {
 
     createArticle(article){
         return knex('articles').insert(article, '*')
+    },
+
+    createUserArticle(userarticle){
+        return knex('user_articles').insert(userarticle, '*')
+    }, 
+
+    getAllUserArticles(){
+        return knex('user_articles')
     }
 
 }

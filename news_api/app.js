@@ -8,6 +8,7 @@ var logger = require('morgan');
 const users = require('./api/users')
 const User = require('./models/user.js')
 const articles = require('./api/articles')
+const userarticles = require('./api/userarticles')
 
 var app = express();
 
@@ -31,6 +32,8 @@ app.post('/signup', User.signup)
 app.post('/signin', User.signin)
 
 app.use('/api/articles', articles)
+
+app.use('/api/userarticles', userarticles)
 
 
 // catch 404 and forward to error handler
