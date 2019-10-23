@@ -20,7 +20,6 @@ searchText.addEventListener('change', event => {
 
 searchForm.addEventListener('submit', event => {
     event.preventDefault()
-
     console.log(event)
     fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=fd5ace6ad0b54f9c9dae1cc5004a9fb5`)
         .then(response => response.json())
@@ -28,7 +27,7 @@ searchForm.addEventListener('submit', event => {
 })
 
 function articleArray(articles){
-    // $cardContainer.style.display = "none"
+    $cardContainer.innerHTML = " "
     articles.forEach(createArticleCard)
 }
 
