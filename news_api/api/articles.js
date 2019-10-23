@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res, next) => {
     queries.createArticle(req.body).then(articles => {
-        res.json(articles[0])
+       return res.json(articles[0])
     })
 })
 

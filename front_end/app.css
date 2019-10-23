@@ -71,6 +71,7 @@ ol:hover{
     display: flex;
     flex-direction: column;
     text-align: center;
+    /* align-content: center; */
     justify-content: space-between;
     background: #87AAB9;
     color: white;
@@ -94,6 +95,15 @@ img {
     height: 15rem;
     margin: 1rem;
     border: solid black 1px;
+}
+
+.save-article {
+    width: 8rem;
+    align-self: center;
+}
+
+.save-article:hover{
+    background:#F9F3C5;
 }
 
 a {

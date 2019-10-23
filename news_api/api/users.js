@@ -23,9 +23,9 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', validUserId, (req, res, next) => {  
-    knex('user-articles')
-        .innerJoin('users', 'users.id', 'user-articles.user_id')
-        .innerJoin('articles', 'articles.id', 'user-articles.article_id')
+    knex('user_articles')
+        .innerJoin('users', 'users.id', 'user_articles.user_id')
+        .innerJoin('articles', 'articles.id', 'user_articles.article_id')
         .where('users.id', req.params.id)
         .then(users => {
             res.json({articles: users})

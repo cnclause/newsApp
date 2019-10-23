@@ -1,3 +1,10 @@
+// current user and add animal id
+let currentUserId = ''
+let savedAnimalId = ''
+
+
+const articleUrl = 'http://localhost:3000/api/articles'
+
 const searchButton = document.getElementById('search-button')
 const searchText = document.getElementById('text-search')
 const searchForm = document.querySelector('.search-bar')
@@ -36,10 +43,14 @@ function createArticleCard(article) {
     const $description = document.createElement('h4')
     // const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
+    const $saveArticleButton = document.createElement('button')
+
+
     $card.className = "article-card"
     $imageBox.className = "image-box"
     $infoBox.className = "info-box"
     $title.className = "article-title"
+    $saveArticleButton.className = "save-article"
 
     $image.src = article.urlToImage
     $source.innerText = `Source:  ${article.source.name}`
@@ -50,12 +61,40 @@ function createArticleCard(article) {
     // $content.innerText = article.content 
     $articleLink.innerText = "click here for full article"
     $articleLink.href = article.url
+    $saveArticleButton.innerText = "Save To Read Later"
 
+    $saveArticleButton.addEventListener('click', event => {
+                addArticleToUser(article)
+        })
+            
     $imageBox.append($title, $image)
     $infoBox.append($source, $author, $description)
-    $card.append($imageBox, $infoBox, $articleLink)
+    $card.append($imageBox, $infoBox, $articleLink, $saveArticleButton)
     $cardContainer.append($card)
     document.body.append($cardContainer)
+}
+
+function addArticleToUser(article){
+    fetch(articleUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            author: article.author,
+            title: article.title,
+            description: article.description,
+            url: article.url,
+            urlToImage: article.urlToImage,
+            content: article.content
+        })
+    }).then(response => response.json())
+    .then(result => saveAnimalId(result.id))
+} 
+
+function saveAnimalId(id){
+    savedAnimalId = id
+    
 }
 
 
