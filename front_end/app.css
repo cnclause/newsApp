@@ -39,6 +39,11 @@ ol:hover{
 
 }
 
+.signin-container{
+    display: flex;
+    justify-content: center;
+}
+
 .search-bar-container{
     padding-top: 2rem;
     padding-bottom: 1rem;
