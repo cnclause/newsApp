@@ -1,9 +1,10 @@
 // current user and add animal id
-let currentUserId = ''
+let currentUserId = 1
 let savedAnimalId = ''
 
 
 const articleUrl = 'http://localhost:3000/api/articles'
+const userArticlePost = 'http://localhost:3000/api/userarticles'
 
 const searchButton = document.getElementById('search-button')
 const searchText = document.getElementById('text-search')
