@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
     queries.getAllUserArticles().then(userarticles => {
         res.json(userarticles)
     })
-})
+}) 
 
 
 

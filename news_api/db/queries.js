@@ -43,6 +43,10 @@ module.exports = {
 
     getAllUserArticles(){
         return knex('user_articles')
+    },
+
+    deleteArticle(id) {
+        return knex('user_articles').where('article_id', id).del()
     }
 
 }

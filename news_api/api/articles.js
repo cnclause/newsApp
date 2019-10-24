@@ -18,6 +18,14 @@ router.post('/', (req, res, next) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    queries.deleteArticle(req.params.id).then(() => {
+        res.json({
+            deleted: true
+        })
+    })
+})
+
 module.exports = router
 
 // request('https://newsapi.org/v2/top-headlines?language=en&apiKey=fd5ace6ad0b54f9c9dae1cc5004a9fb5', function (error, response, body) {

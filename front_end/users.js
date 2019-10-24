@@ -1,4 +1,5 @@
 const getUserArticles = 'http://localhost:3000/api/users/'
+const deleteArticleUrl = 'http://localhost:3000/api/articles/'
 const currentUserId = localStorage.getItem('currentUserId')
 
 const $savedArticlesButton = document.querySelector('.saved-articles')
@@ -41,11 +42,13 @@ function createUserCard(articles){
     const $description = document.createElement('h4')
     const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
+    const $deleteButton = document.createElement('button')
 
     $card.className = "article-card"
     $imageBox.className = "image-box"
     $infoBox.className = "info-box"
     $title.className = "article-title"
+    $deleteButton.className = "delete-button"
 
     $image.src = articles.urlToImage
     // $source.innerText = `Source:  
@@ -57,12 +60,35 @@ function createUserCard(articles){
     ${articles.description}`
     $articleLink.href = articles.url
     $articleLink.innerText = "click here for full article"
+    $deleteButton.innerText = "remove article"
+
+    $deleteButton.addEventListener('click', event => {
+        deleteArticle(articles)
+    })
 
     $imageBox.append($title, $image)
     $infoBox.append($author, $description)
-    $card.append($imageBox, $infoBox, $articleLink)
+    $card.append($imageBox, $infoBox, $articleLink, $deleteButton)
     $userCardContainer.append($card)
     document.body.append($userCardContainer)
+}
+
+
+function deleteArticle(article){
+    const card = document.querySelector('.article-card')
+    fetch(deleteArticleUrl + article.id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                user_id: currentUserId,
+                article_id: article.id
+            }
+        )
+    }).then(card.remove())
+
 }
 
 if(window.location.href === "http://localhost:3001/users.html"){

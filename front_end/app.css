@@ -9,15 +9,31 @@ body{
     font-family: 'Rubik', sans-serif;
     /* background: #f9f3c547; */
     /* background: #646F6f; */
+    /* background: #E3E3E3; */
+}
 
+header .background {
+    background-image: url(https://images.unsplash.com/photo-1493972741200-51d407e0ee33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .5;
+    width: 100%;
+    height: 100%;
 }
 
 header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #646F6F;
+    position: relative;
+    z-index: 1;
+    /* color: #646F6F; */
     /* color: white; */
+    color: #090a0a;
     font-family: 'Old Standard TT', serif;
 }
 
@@ -25,23 +41,21 @@ h1{
     text-align: center;
     font-size: 7rem;
     margin: 0;
-    text-decoration: #f24b3c underline;
+    text-decoration: black underline;
 }
 
 nav{
     display: flex;
     justify-content: flex-end;
-    padding-right: 5rem;
-    background:#87AAB9;
+    align-content: center;
+    padding-right: 1px;
+    /* background: black; */
     color: white;
+    /* color: red; */
     text-align: end;
+    height: 1.5rem;
 
 } 
-
-ol:hover{
-    color: #F9F3C5;
-
-}
 
 .signin-container{
     display: flex;
@@ -104,6 +118,7 @@ ol:hover{
     /* border: solid black 1px; */
     overflow: auto;
     /* border-radius: 13px; */
+    background: #f6f6f8;
     border-radius: 6px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -142,16 +157,27 @@ img {
     transform: scale(0.8);
 }
 
-a {
+nav a { 
+
+    background: black;
     text-decoration: none;
-    color: #4876ffe0;
-    margin-bottom: 2px;
+    /* color: #4876ffe0; */
+    color: white;
+    /* margin-bottom: 2px; */
     position: bottom;
+    margin-right: 7px;
+    padding: 5px;
+    /* padding-bottom: 3px; */
+    border-radius: 4px;
 }
 
 a:hover {
     font-weight: bold;
     transform: scale(0.8);
+}
+
+.article-card a{
+    text-decoration: none;
 }
 
 h3, h4 {
@@ -162,9 +188,11 @@ p {
     font-size: 10px;
 }
 
-.space {
-    padding: 3rem;
+.delete-button {
+    width: 7rem;
+    align-self: center;
 }
+
 
 .footer {
     display:flex;
@@ -173,13 +201,15 @@ p {
     bottom: 0;
     left: 0;
     justify-content: flex-end; 
-    background: #646F6F;
+    background: black;
     font-family: 'Old Standard TT', serif;
-    height: 3rem;
+    height: 1rem;
 }
 
 .footer-credit {
-    color: #87AAB9;
+    color: lightgray;
+    text-decoration: none;
+    font-size: 12px;
     align-self: center;
     margin-right: 1rem;
 }
