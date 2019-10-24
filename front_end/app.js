@@ -60,7 +60,7 @@ function createLogIn(){
     const $loginTitle = document.querySelector('.currentUserTitle')
     const $loginInformation = document.querySelector('.loginInstructions')
 
-    $loginTitle.innerText = "Current User Signin" 
+    $loginTitle.innerText = "Current User Login" 
     $loginInformation.innerText = "Use your username and password to login"      
 }
 

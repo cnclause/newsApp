@@ -6,6 +6,9 @@ let savedArticleId = ''
 const articleUrl = 'http://localhost:3000/api/articles'
 const userArticlePost = 'http://localhost:3000/api/userarticles'
 
+
+
+
 const searchButton = document.getElementById('search-button')
 let searchText = document.querySelector('#text-search')
 const searchForm = document.querySelector('.search-bar')
@@ -13,6 +16,7 @@ const $cardContainer = document.createElement('div')
 $cardContainer.className = 'card-container'
 let query = ''
 searchText.value = ''
+
 
 
 searchText.addEventListener('change', event => {
@@ -45,7 +49,9 @@ function createArticleCard(article) {
     // const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
     const $saveArticleButton = document.createElement('a')
-    const $savedArticlesButton = document.querySelector('.saved-articles')
+    const $linkContainer = document.createElement('div')
+    $linkContainer.className = "link-container"
+    // const $savedArticlesButton = document.querySelector('.saved-articles')
 
 
     $card.className = "article-card"
@@ -71,16 +77,19 @@ function createArticleCard(article) {
 
     $saveArticleButton.addEventListener('click', event => {
                 addArticleToUser(article)
+               
         })
-            
+       
     $imageBox.append($title, $image)
     $infoBox.append($source, $author, $description)
-    $card.append($imageBox, $infoBox, $articleLink, $saveArticleButton)
+    $linkContainer.append($articleLink, $saveArticleButton)
+    $card.append($imageBox, $infoBox, $linkContainer)
     $cardContainer.append($card)
     document.body.append($cardContainer)
 }
 
 function addArticleToUser(article){
+    alert("article saved")
     fetch(articleUrl, {
         method: 'POST',
         headers: {
@@ -120,6 +129,16 @@ function addUserArticles(){
     }).then(response => response.json())
         .then(result => console.log(result))
 }
+
+function addOverlay(){
+    
+    overlayText.className = 'overlay-text'
+    overlayText.innerText = 'Article Saved!'
+    
+    $overLay.append($overlayText)
+    document.body.append($overLay)
+}
+
 
 // $savedArticlesButton.addEventListener('click', event => {
 //     showUserArticles()

@@ -43,6 +43,7 @@ function createUserCard(articles){
     const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
     const $deleteButton = document.createElement('button')
+    // const $linkContainer = document.getElementsByClassName('')
 
     $card.className = "article-card"
     $imageBox.className = "image-box"
@@ -63,6 +64,7 @@ function createUserCard(articles){
     $deleteButton.innerText = "remove article"
 
     $deleteButton.addEventListener('click', event => {
+        console.log(event)
         deleteArticle(articles)
     })
 
@@ -87,7 +89,9 @@ function deleteArticle(article){
                 article_id: article.id
             }
         )
-    }).then(card.remove())
+    }).then(response => response.json())
+    .then(result => console.log(result))
+    .then(card.remove())
 
 }
 

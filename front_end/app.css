@@ -62,6 +62,26 @@ nav{
     justify-content: center;
 }
 
+.signup-form, .login-form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    border: solid 1px;
+}
+
+#text-search {
+    font-size: 2rem;
+}
+
+
+input {
+    padding: 1rem;
+    margin: 0.5rem;
+    text-align: center;
+}
+
 .search-bar-container{
     padding-top: 2rem;
     padding-bottom: 1rem;
@@ -81,7 +101,7 @@ nav{
 }
 
 #search-button{
-    width: 5rem;
+    width: 4rem;
 }
 #search-button:hover{
     background: #F9F3C5;
@@ -180,6 +200,11 @@ a:hover {
     text-decoration: none;
 }
 
+.link-container {
+    display:flex;
+    flex-direction: column;
+}
+
 h3, h4 {
     font-size: 15px;
 }
@@ -192,6 +217,7 @@ p {
     width: 7rem;
     align-self: center;
 }
+
 
 
 .footer {
