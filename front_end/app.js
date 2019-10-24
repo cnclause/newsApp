@@ -1,4 +1,5 @@
 
+// let currentUserId = ''
 
 const signUpUser = 'http://localhost:3000/signup'
 const loginUser ='http://localhost:3000/login'
@@ -41,12 +42,13 @@ function createUser(user){
         body: JSON.stringify(user)
     }).then(response => response.json())
         .then(result => signUpWork(result.user.id))
+        .catch(console.error)
 }
 
 function signUpWork(id){
-    currentUserId = id
+    localStorage.setItem('currentUserId', id)
     login()
-    console.log(currentUserId)
+    console.log(localStorage.getItem('currentUserId'))
 }
 
 // function signUpError(){

@@ -3,10 +3,12 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300&display=swap');
 
 
+
 body{
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'Rubik', sans-serif;
-
+    /* background: #f9f3c547; */
+    /* background: #646F6f; */
 
 }
 
@@ -15,6 +17,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     color: #646F6F;
+    /* color: white; */
     font-family: 'Old Standard TT', serif;
 }
 
@@ -22,6 +25,7 @@ h1{
     text-align: center;
     font-size: 7rem;
     margin: 0;
+    text-decoration: #f24b3c underline;
 }
 
 nav{
@@ -73,7 +77,15 @@ ol:hover{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    margin-bottom: 3rem;
 
+}
+
+.user-card-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
 }
 
 .article-card{
@@ -82,37 +94,52 @@ ol:hover{
     text-align: center;
     /* align-content: center; */
     justify-content: space-between;
-    background: #87AAB9;
-    color: white;
-    width: 30rem;
+    /* background: #87AAB9; */
+    /* color: white; */ 
+    color: black;
+    width: 20rem;
     /* height: 30rem; */
     margin: 1rem;
+    /* background: rgba(253, 253, 253, 0.84); */
     /* border: solid black 1px; */
     overflow: auto;
-    border-radius: 13px;
+    /* border-radius: 13px; */
+    border-radius: 6px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .article-title {
     font-family: 'Old Standard TT', serif;
     color:#303333;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
+.info-box{
+    margin-left: 3px;
+    margin-right: 3px;
+}
 
 img {
     align-self: center;
-    width: 20rem;
-    height: 15rem;
+    width: 12rem;
+    height: 8rem;
     margin: 1rem;
-    border: solid black 1px;
+    border-radius: 4px;
+
+    /* border: solid black 1px; */
 }
 
 .save-article {
-    width: 8rem;
+    /* width: 10rem; */
     align-self: center;
+    border-radius: 5px;
+    color: #312e2db5;
+    margin-top: 8.5px;
+
 }
 
 .save-article:hover{
-    background:#F9F3C5;
+    transform: scale(0.8);
 }
 
 a {
@@ -124,6 +151,7 @@ a {
 
 a:hover {
     font-weight: bold;
+    transform: scale(0.8);
 }
 
 h3, h4 {
@@ -134,3 +162,24 @@ p {
     font-size: 10px;
 }
 
+.space {
+    padding: 3rem;
+}
+
+.footer {
+    display:flex;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    justify-content: flex-end; 
+    background: #646F6F;
+    font-family: 'Old Standard TT', serif;
+    height: 3rem;
+}
+
+.footer-credit {
+    color: #87AAB9;
+    align-self: center;
+    margin-right: 1rem;
+}

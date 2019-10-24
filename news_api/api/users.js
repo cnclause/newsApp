@@ -28,7 +28,7 @@ router.get('/:id', validUserId, (req, res, next) => {
         .innerJoin('articles', 'articles.id', 'user_articles.article_id')
         .where('users.id', req.params.id)
         .then(users => {
-            res.json(users)
+            res.json({articles: users})
         })
 
 })

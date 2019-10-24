@@ -1,5 +1,5 @@
 // current user and add article id
-let currentUserId = ''
+
 let savedArticleId = ''
 
 
@@ -12,6 +12,7 @@ const searchForm = document.querySelector('.search-bar')
 const $cardContainer = document.createElement('div')
 $cardContainer.className = 'card-container'
 let query = ''
+searchText.value = ''
 
 
 searchText.addEventListener('change', event => {
@@ -43,7 +44,8 @@ function createArticleCard(article) {
     const $description = document.createElement('h4')
     // const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
-    const $saveArticleButton = document.createElement('button')
+    const $saveArticleButton = document.createElement('a')
+    const $savedArticlesButton = document.querySelector('.saved-articles')
 
 
     $card.className = "article-card"
@@ -53,15 +55,19 @@ function createArticleCard(article) {
     $saveArticleButton.className = "save-article"
 
     $image.src = article.urlToImage
-    $source.innerText = `Source:  ${article.source.name}`
+    $source.innerText = `Source:  
+    ${article.source.name}`
     $title.innerText = article.title
-    $author.innerText = `Author:  ${article.author}`
+    $author.innerText = `Author:  
+    ${article.author}`
     $description.innerText = `Description:  
     ${article.description}`
     // $content.innerText = article.content 
     $articleLink.innerText = "click here for full article"
     $articleLink.href = article.url
-    $saveArticleButton.innerText = "Save To Read Later"
+    $saveArticleButton.innerText = "click to save article"
+    // $saveArticleButton.href = "users.html"
+
 
     $saveArticleButton.addEventListener('click', event => {
                 addArticleToUser(article)
@@ -93,9 +99,28 @@ function addArticleToUser(article){
 } 
 
 function saveArticleId(id){
-    savedArticleId = id
-    console.log(savedArticleId)
-    
+    localStorage.setItem('savedArticleId', id)
+    console.log(localStorage.getItem('savedArticleId'))
+    console.log(localStorage.getItem('currentUserId'))
+
+    addUserArticles()
 }
 
+function addUserArticles(){
+    fetch(userArticlePost, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_id: localStorage.getItem('currentUserId'),
+            article_id: localStorage.getItem('savedArticleId')
+        })
 
+    }).then(response => response.json())
+        .then(result => console.log(result))
+}
+
+// $savedArticlesButton.addEventListener('click', event => {
+//     showUserArticles()
+// })
