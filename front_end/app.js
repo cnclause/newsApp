@@ -2,7 +2,7 @@
 // let currentUserId = ''
 
 const signUpUser = 'http://localhost:3000/signup'
-const loginUser ='http://localhost:3000/login'
+const loginUser ='http://localhost:3000/signin'
 
 const $signInContainer = document.querySelector('.sign-in')  
 const $signUpForm = document.querySelector('.signup-form')
@@ -41,14 +41,17 @@ function createUser(user){
         },
         body: JSON.stringify(user)
     }).then(response => response.json())
-        .then(result => signUpWork(result.user.id))
-        .catch(console.error)
+        .then(result => result.error ? signUpError(result.error) : signUpWork())
+        //     signUpWork(result.user.id))
+        // .catch(console.error)
 }
 
-function signUpWork(id){
-    localStorage.setItem('currentUserId', id)
-    login()
-    console.log(localStorage.getItem('currentUserId'))
+function signUpWork(){
+    alert("Your signup was successful, please log in")
+}
+
+function signUpError(error){
+    alert(error)
 }
 
 // function signUpError(){
@@ -66,6 +69,7 @@ function createLogIn(){
 
 function login() {
     $loginForm.addEventListener('submit', event => {
+        // window.location.href = "http://localhost:3001/news.html"
         event.preventDefault()
         const formData = new FormData($loginForm)
         const username = formData.get('username')
@@ -80,6 +84,7 @@ function login() {
     })
 }
 
+
 function checkLogin(user){
     fetch(loginUser, {
         method: 'POST',
@@ -88,11 +93,27 @@ function checkLogin(user){
         },
         body: JSON.stringify(user)
     }).then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => result.error ? errorLogIn(result.error) : successfulLogin(result.id))
 
+
+}
+
+function errorLogIn(error){
+    alert(error)
+}
+
+function successfulLogin(id){
+  localStorage.setItem('currentUserId', id)
+    console.log('currentUserId')
+    newsPage()
+}
+
+function newsPage(){
+    window.location.href = "http://localhost:3001/news.html"
 }
 
 
 
+login()
 createLogIn()
 createSignIn()

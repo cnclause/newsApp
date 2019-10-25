@@ -18,16 +18,11 @@ module.exports = {
             
     // },
 
-    uniqueUser(user){
-        console.log(user.username)
-        knex('users')
-            .where({
-                username: user.username
-            })
-            .select('username') 
-            .catch(console.error)
-        
-    }, 
+    isUniqueUser(username){
+      return knex('users').where({username})
+        .then(users => !!users.length )
+     },
+
 
     getAllArticles(){
         return knex('articles')

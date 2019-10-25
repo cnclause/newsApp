@@ -94,6 +94,15 @@ function deleteArticle(article){
     .then(card.remove())
 
 }
+// function logoutUser(){
+//     const logoutButton = document.querySelector('.logout')
+//     logoutButton.addEventListener('click', event => {
+//         localStorage.removeItem('currentUserId')
+//     })
+    
+// }
+
+logout()
 
 if(window.location.href === "http://localhost:3001/users.html"){
     showUserArticles()

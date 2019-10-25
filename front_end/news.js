@@ -7,8 +7,6 @@ const articleUrl = 'http://localhost:3000/api/articles'
 const userArticlePost = 'http://localhost:3000/api/userarticles'
 
 
-
-
 const searchButton = document.getElementById('search-button')
 let searchText = document.querySelector('#text-search')
 const searchForm = document.querySelector('.search-bar')
@@ -130,14 +128,18 @@ function addUserArticles(){
         .then(result => console.log(result))
 }
 
-function addOverlay(){
+function logout(){
+    const logoutButton = document.querySelector('.Logout')
+    logoutButton.addEventListener('click', event => {
+        localStorage.removeItem('currentUserId')
+        localStorage.removeItem('savedArticleId')
+    })
     
-    overlayText.className = 'overlay-text'
-    overlayText.innerText = 'Article Saved!'
-    
-    $overLay.append($overlayText)
-    document.body.append($overLay)
 }
+
+logout()
+
+
 
 
 // $savedArticlesButton.addEventListener('click', event => {

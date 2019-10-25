@@ -3,6 +3,7 @@ const configuration = require('../knexfile')[environment];// pull in correct db 
 const database = require('knex')(configuration);// define database based on above
 const bcrypt = require('bcrypt')  // bcrypt will encrypt passwords to be saved in db
 const crypto = require('crypto') // built-in encryption node module
+const queries = require('../db/queries')
 
 // sign up methods!
 
@@ -33,8 +34,14 @@ const createToken = () => {
 
 const signup = (req, res) => {
     const user = req.body
-    hashPassword(user.password)
-        .then((hashedPassword) => {
+    // console.log(user.username)
+    queries.isUniqueUser(user.username)
+        .then(isUnique => {
+            console.log("FfFFFF", isUnique)
+            if(isUnique) throw new Error ("Username is already taken")
+
+            return hashPassword(user.password)
+        }).then((hashedPassword) => {
             delete user.password 
             user.password_digest = hashedPassword
         })
@@ -45,9 +52,13 @@ const signup = (req, res) => {
             delete user.password_digest
             res.status(201).json({ user })
         })
-        .catch((err) => console.log(err))
-
-} 
+        .catch((err) => {
+            res.status(400).json({
+                error: err.message
+            })
+        })      
+    }
+    
 
 // signinmethods 
 const findUser = (userReq) => {
@@ -93,7 +104,7 @@ const signin = (req, res) => {
             delete user.password_digest
             res.status(200).json(user)
         })
-        .catch((err) => console.log(err))
+        .catch((error) => res.send({error: "username or password are incorrect, try again"}))
 }
 
 // authentication function
