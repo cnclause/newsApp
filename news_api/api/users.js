@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const queries = require('../db/queries')
 const knex = require('../db/knex')
+const faker = require('faker')
 
 
 function validUser(user){
@@ -31,7 +32,10 @@ router.get('/:id', validUserId, (req, res, next) => {
             res.json({articles: users})
         })
 
-})
+}) 
+
+
+
 
 
 
