@@ -7,6 +7,7 @@ const loginUser ='http://localhost:3000/signin'
 const $signInContainer = document.querySelector('.sign-in')  
 const $signUpForm = document.querySelector('.signup-form')
 const $loginForm = document.querySelector('.login-form') 
+$signUpForm.style.display = "none"
 
 
 
@@ -48,6 +49,8 @@ function createUser(user){
 
 function signUpWork(){
     alert("Your signup was successful, please log in")
+    $signUpForm.style.display = "none"
+
 }
 
 function signUpError(error){
@@ -62,10 +65,27 @@ function signUpError(error){
 function createLogIn(){
     const $loginTitle = document.querySelector('.currentUserTitle')
     const $loginInformation = document.querySelector('.loginInstructions')
+    const $newUserButton = document.createElement('button')
+    const $p = document.createElement('p')
+    const $signUpButtonContainer = document.createElement('div')
 
+    $signUpButtonContainer.className = "signup-button-container"
+    $p.className = "p-tag-sign-up"
+
+    $p.innerText = "New User?"
     $loginTitle.innerText = "Current User Login" 
-    $loginInformation.innerText = "Use your username and password to login"      
+    $loginInformation.innerText = "Use your username and password to login" 
+
+    $signUpButtonContainer.append($newUserButton, $p)
+    $loginForm.append($signUpButtonContainer)
+
+    $newUserButton.innerText = "Sign Up"
+    $newUserButton.addEventListener('click', event => {
+        $signUpForm.style.display = "flex"
+        event.target.parentNode.style.display = "none"
+    })      
 }
+
 
 function login() {
     $loginForm.addEventListener('submit', event => {

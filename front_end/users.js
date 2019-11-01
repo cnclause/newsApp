@@ -1,8 +1,14 @@
 const getUserArticles = 'http://localhost:3000/api/users/'
 const deleteArticleUrl = 'http://localhost:3000/api/articles/'
 const currentUserId = localStorage.getItem('currentUserId')
+const memesUrl = "http://localhost:3000/api/memes/"
+
 
 const $savedArticlesButton = document.querySelector('.saved-articles')
+const $userSection = document.createElement('div')
+$userSection.className = "user-section"
+const $memeSection = document.createElement('div')
+$memeSection.className = "meme-section"
 
 const $userCardContainer = document.createElement('div')
 $userCardContainer.className = 'user-card-container'
@@ -65,6 +71,7 @@ function createUserCard(articles){
 
     $deleteButton.addEventListener('click', event => {
         console.log(event)
+        event.target.
         deleteArticle(articles)
     })
 
@@ -72,12 +79,13 @@ function createUserCard(articles){
     $infoBox.append($author, $description)
     $card.append($imageBox, $infoBox, $articleLink, $deleteButton)
     $userCardContainer.append($card)
-    document.body.append($userCardContainer)
+    $userSection.append($userCardContainer, $memeSection)
+    document.body.append($userSection)
 }
 
 
 function deleteArticle(article){
-    const card = document.querySelector('.article-card')
+    // const card = document.querySelector('.article-card')
     fetch(deleteArticleUrl + article.id, {
         method: 'DELETE',
         headers: {
@@ -91,18 +99,41 @@ function deleteArticle(article){
         )
     }).then(response => response.json())
     .then(result => console.log(result))
-    .then(card.remove())
+    // .then(card.remove())
 
 }
-// function logoutUser(){
-//     const logoutButton = document.querySelector('.logout')
-//     logoutButton.addEventListener('click', event => {
-//         localStorage.removeItem('currentUserId')
-//     })
-    
-// }
+
+
+function seeMemes(){
+    $memeButton = document.createElement('button')
+    $memeButton.className = "meme-button"
+    $memeButton.innerText = "News got ya down? Click me for a smile"
+    $memeSection.append($memeButton)
+
+    $memeButton.addEventListener('click', event => {
+        console.log(event)
+        fetchMemes()
+    })
+}
+
+function fetchMemes(){
+    fetch(memesUrl)
+        .then(response => response.json())
+        .then(result => createMeme(result))
+}
+
+function createMeme(memeLink){
+    $memeImage = document.createElement('img')
+    $memeImage.classname = "meme-image"
+    $memeImage.src = memeLink
+    console.log($memeImage)
+
+    $memeSection.append($memeImage)
+    document.body.append($memeSection)
+}
 
 logout()
+seeMemes()
 
 if(window.location.href === "http://localhost:3001/users.html"){
     showUserArticles()
