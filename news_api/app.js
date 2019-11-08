@@ -41,15 +41,17 @@ app.use('/api/userarticles', userarticles)
 app.use('/api/memes', memes)
 
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-
 
   // render the error page
   res.status(err.status || 500);
@@ -58,5 +60,14 @@ app.use(function(err, req, res, next) {
     error: err.statusCode
   });
 });
+
+const PORT = process.env.PORT || 9000
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
+})
+
+
+
+
 
 module.exports = app;
