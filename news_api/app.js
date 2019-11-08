@@ -61,12 +61,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-const PORT = process.env.PORT || 9000
-app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`)
-})
-
-
 
 
 

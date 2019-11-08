@@ -1,7 +1,7 @@
-const getUserArticles = 'http://localhost:3000/api/users/'
-const deleteArticleUrl = 'http://localhost:3000/api/articles/'
+const getUserArticles = 'https://api-newsapp.herokuapp.com/api/users'
+const deleteArticleUrl = 'https://api-newsapp.herokuapp.com/api/articles'
 const currentUserId = localStorage.getItem('currentUserId')
-const memesUrl = "http://localhost:3000/api/memes/"
+const memesUrl = "https://api-newsapp.herokuapp.com/api/memes"
 
 
 const $savedArticlesButton = document.querySelector('.saved-articles')

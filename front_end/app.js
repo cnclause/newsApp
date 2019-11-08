@@ -1,8 +1,8 @@
 
 // let currentUserId = ''
 
-const signUpUser = 'http://localhost:3000/signup'
-const loginUser ='http://localhost:3000/signin'
+const signUpUser = 'https://api-newsapp.herokuapp.com/signup'
+const loginUser ='https://api-newsapp.herokuapp.com/signin'
 
 const $signInContainer = document.querySelector('.sign-in')  
 const $signUpForm = document.querySelector('.signup-form')
@@ -89,7 +89,6 @@ function createLogIn(){
 
 function login() {
     $loginForm.addEventListener('submit', event => {
-        // window.location.href = "http://localhost:3001/news.html"
         event.preventDefault()
         const formData = new FormData($loginForm)
         const username = formData.get('username')

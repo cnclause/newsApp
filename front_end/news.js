@@ -3,8 +3,8 @@
 let savedArticleId = ''
 
 
-const articleUrl = 'http://localhost:3000/api/articles'
-const userArticlePost = 'http://localhost:3000/api/userarticles'
+const articleUrl = 'https://api-newsapp.herokuapp.com/api/articles'
+const userArticlePost = 'https://api-newsapp.herokuapp.com/userarticles'
 
 
 const searchButton = document.getElementById('search-button')
