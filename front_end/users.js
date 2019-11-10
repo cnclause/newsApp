@@ -54,7 +54,7 @@ function createUserCard(articles){
 
     $deleteButton.addEventListener('click', event => {
         // console.log(event)
-        event.target.
+        event.target.parentNode.remove()
         deleteArticle(articles)
     })
 
@@ -81,7 +81,7 @@ function deleteArticle(article){
         )
     }).then(response => response.json())
     .then(result => console.log(result))
-    // .then(card.remove())
+    // .then($card.remove())
 
 }
 
