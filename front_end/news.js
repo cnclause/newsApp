@@ -4,7 +4,7 @@ let savedArticleId = ''
 
 
 const articleUrl = 'https://api-newsapp.herokuapp.com/api/articles'
-const userArticlePost = 'https://api-newsapp.herokuapp.com/userarticles'
+const userArticlePost = 'https://api-newsapp.herokuapp.com/api/userarticles'
 
 
 const searchButton = document.getElementById('search-button')
