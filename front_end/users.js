@@ -13,24 +13,11 @@ $memeSection.className = "meme-section"
 const $userCardContainer = document.createElement('div')
 $userCardContainer.className = 'user-card-container'
 
-// $savedArticlesButton.addEventListener('click', event => {
-//     // event.preventDefault()
-//     setTimeout(showUserArticles, 2000)
-//     console.log(event)
-//     // $cardContainer.style.display = "none"
-//     showUserArticles()
-    
-// })
-
-
 function showUserArticles(){
     console.log(getUserArticles + currentUserId)
     fetch(getUserArticles + currentUserId)
         .then(response => response.json())
-        // .then(setTimeout(userArticleArray(result.articles), 1000))
         .then(result => userArticleArray(result.articles))
-        // .then(console.log(userArticles))
-
 }
 
 function userArticleArray(articles){
@@ -42,14 +29,12 @@ function createUserCard(articles){
     const $image = document.createElement('img')
     const $imageBox = document.createElement('div')
     const $infoBox = document.createElement('div')
-    // const $source = document.createElement('h3')
     const $title = document.createElement('h2')
     const $author = document.createElement('h3')
     const $description = document.createElement('h4')
     const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
     const $deleteButton = document.createElement('button')
-    // const $linkContainer = document.getElementsByClassName('')
 
     $card.className = "article-card"
     $imageBox.className = "image-box"
@@ -58,8 +43,6 @@ function createUserCard(articles){
     $deleteButton.className = "delete-button"
 
     $image.src = articles.urlToImage
-    // $source.innerText = `Source:  
-    // ${articles.source.name}`
     $title.innerText = articles.title
     $author.innerText = `Author:  
     ${articles.author}`
@@ -70,7 +53,7 @@ function createUserCard(articles){
     $deleteButton.innerText = "remove article"
 
     $deleteButton.addEventListener('click', event => {
-        console.log(event)
+        // console.log(event)
         event.target.
         deleteArticle(articles)
     })
@@ -85,7 +68,6 @@ function createUserCard(articles){
 
 
 function deleteArticle(article){
-    // const card = document.querySelector('.article-card')
     fetch(deleteArticleUrl + article.id, {
         method: 'DELETE',
         headers: {
@@ -111,7 +93,7 @@ function seeMemes(){
     $memeSection.append($memeButton)
 
     $memeButton.addEventListener('click', event => {
-        console.log(event)
+        // console.log(event)
         fetchMemes()
     })
 }
@@ -126,7 +108,7 @@ function createMeme(memeLink){
     $memeImage = document.createElement('img')
     $memeImage.classname = "meme-image"
     $memeImage.src = memeLink
-    console.log($memeImage)
+    // console.log($memeImage)
 
     $memeSection.append($memeImage)
     document.body.append($memeSection)
@@ -135,6 +117,6 @@ function createMeme(memeLink){
 logout()
 seeMemes()
 
-if(window.location.href === "http://localhost:3001/users.html"){
+if(window.location.href === "http://news-app-5a3fc.firebaseapp.com/users.html"){
     showUserArticles()
 }

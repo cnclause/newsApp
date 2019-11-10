@@ -72,7 +72,6 @@ function createArticleCard(article) {
     $saveArticleButton.innerText = "click to save article"
     // $saveArticleButton.href = "users.html"
 
-
     $saveArticleButton.addEventListener('click', event => {
                 addArticleToUser(article)
                
@@ -138,10 +137,3 @@ function logout(){
 }
 
 logout()
-
-
-
-
-// $savedArticlesButton.addEventListener('click', event => {
-//     showUserArticles()
-// })
