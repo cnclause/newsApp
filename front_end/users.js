@@ -1,4 +1,4 @@
-const getUserArticles = 'https://api-newsapp.herokuapp.com/api/users'
+const getUserArticles = 'https://api-newsapp.herokuapp.com/api/users/'
 const deleteArticleUrl = 'https://api-newsapp.herokuapp.com/api/articles'
 const currentUserId = localStorage.getItem('currentUserId')
 const memesUrl = "https://api-newsapp.herokuapp.com/api/memes"
