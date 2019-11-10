@@ -1,4 +1,3 @@
-// current user and add article id
 
 let savedArticleId = ''
 

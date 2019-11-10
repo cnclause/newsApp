@@ -57,10 +57,6 @@ function signUpError(error){
     alert(error)
 }
 
-// function signUpError(){
-//     alert("username already taken, try again")
-//     createSignIn()
-// }
 
 function createLogIn(){
     const $loginTitle = document.querySelector('.currentUserTitle')

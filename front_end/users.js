@@ -117,6 +117,6 @@ function createMeme(memeLink){
 logout()
 seeMemes()
 
-if(window.location.href = "http://news-app-5a3fc.firebaseapp.com/users.html"){
+if(window.location.href === "https://news-app-5a3fc.firebaseapp.com/users.html"){
     showUserArticles()
 }
