@@ -23,7 +23,7 @@ searchText.addEventListener('change', event => {
 
 searchForm.addEventListener('submit', event => {
     event.preventDefault()
-    console.log(event)
+    // console.log(event)
     fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=fd5ace6ad0b54f9c9dae1cc5004a9fb5`)
         .then(response => response.json())
         .then(resp => articleArray(resp.articles))
@@ -44,13 +44,10 @@ function createArticleCard(article) {
     const $title = document.createElement('h2')
     const $author = document.createElement('h3')
     const $description = document.createElement('h4')
-    // const $content = document.createElement('p')
     const $articleLink = document.createElement('a')
     const $saveArticleButton = document.createElement('a')
     const $linkContainer = document.createElement('div')
     $linkContainer.className = "link-container"
-    // const $savedArticlesButton = document.querySelector('.saved-articles')
-
 
     $card.className = "article-card"
     $imageBox.className = "image-box"
@@ -66,11 +63,9 @@ function createArticleCard(article) {
     ${article.author}`
     $description.innerText = `Description:  
     ${article.description}`
-    // $content.innerText = article.content 
     $articleLink.innerText = "click here for full article"
     $articleLink.href = article.url
     $saveArticleButton.innerText = "click to save article"
-    // $saveArticleButton.href = "users.html"
 
     $saveArticleButton.addEventListener('click', event => {
                 addArticleToUser(article)
@@ -106,8 +101,8 @@ function addArticleToUser(article){
 
 function saveArticleId(id){
     localStorage.setItem('savedArticleId', id)
-    console.log(localStorage.getItem('savedArticleId'))
-    console.log(localStorage.getItem('currentUserId'))
+    // console.log(localStorage.getItem('savedArticleId'))
+    // console.log(localStorage.getItem('currentUserId'))
 
     addUserArticles()
 }

@@ -123,13 +123,12 @@ function errorLogIn(error){
 
 function successfulLogin(id){
   localStorage.setItem('currentUserId', id)
-    console.log('currentUserId')
+    // console.log('currentUserId')
     newsPage()
-    console.log('below news')
+    // console.log('below news')
 }
 
 function newsPage(){
-    console.log("NEWS HERE")
     window.location.href = "http://news-app-5a3fc.firebaseapp.com/news.html"
 }
 
