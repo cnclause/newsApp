@@ -4,7 +4,11 @@ My News is an application that allows a user to search a live news API and see t
 
 ## Stack 
 
-The backend of the My News app is written in Node.js and the front end is javascript. 
+The backend of the My News app is written in Node.js and the front end is Javascript. 
+
+## Deployed Link and Demo
+Deployed link: https://news-app-5a3fc.firebaseapp.com/ 
+Demo Video: https://youtu.be/ATE8lfBv5OQ
 
 ## Contributors 
 This app was built by Catherine Clause. The news articles were accessed through News Api. 
